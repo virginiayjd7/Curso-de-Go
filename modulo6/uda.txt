@@ -1,0 +1,214 @@
+func actualizarUsuario() {    fmt.Println("Ingrese el Id del usuario a actualizar")    id, err := strconv.Atoi(readLine())    if err != nil {        panic("el valor que ingreso no se pudo convertir en entero")    }    if _, ok := usuarios[id]; ok {        fmt.Println("Ingresa un valor para nombre")        Nombre := readLine()        fmt.Println("Ingresa un valor para correo")        Correo := readLine()        fmt.Println("Ingresa un valor para edad")        Edad, err := strconv.Atoi(readLine())        if err != nil {            panic("No es posible convertir el valor a entero")        }        usuarios[id] = Usuario{Id: id, Nombre: Nombre, Correo: Correo, Edad: Edad}    } else {        fmt.Println(" Usuario No pudo ser Actualizado")    }    fmt.Println(usuarios)    fmt.Println("Actualizar Usuario Exitosamente")}
+
+
+if err != nil {
+    panic("No es posible convertir a un int")
+}
+
+if user, ok := users[id]; ok {
+    fmt.Println("Ingresa un valor si desea modificar el username [", user.username, "]")
+    username := readLine()
+    if username != "" {
+        user.username = username
+    }
+
+    fmt.Println("Ingresa un valor si desea modificar el email [", user.email, "]")
+    email := readLine()
+    if email != "" {
+        user.email = email
+    }
+
+    fmt.Println("Ingresa un valor si desea modificar la edad [", user.age, "]")
+    age, err := strconv.Atoi(readLine())
+
+    if err != nil {
+        age = user.age
+    }
+
+    user.age = age
+
+    users[id] = user
+    fmt.Println(user)
+
+}
+
+fmt.Println(">>> Usuario actualizado exitosamente\n")
+
+
+
+unc updateMovie() {
+    clearConsole()
+    fmt.Print("Ingresa el Id de la película a actualizar: ")
+    if id, err := strconv.Atoi(readLine()); err != nil {
+        panic("No es posible convertir un str a int")
+    } else {
+        if _, ok := movies[id]; ok {
+            fmt.Print("Ingresa el nombre: ")
+            Name := readLine()
+            fmt.Print("Ingresa el género: ")
+            Genre := readLine()
+            fmt.Print("Ingresa la duración: ")
+            if Duration, err := strconv.Atoi(readLine()); err != nil {
+                panic("No es posible convertir un str a int")
+            } else {
+                movie := Movie{id, Name, Genre, Duration}
+                movies[id] = movie
+            }
+        }
+    }
+    fmt.Println("Pelicula actualizada")
+}
+
+
+
+func actualizarUsuario() {
+    clearConsole()
+
+    fmt.Println("Ingresar id de usuario a actualizar:")
+    id, err := strconv.Atoi(r.readLine())
+    if err != nil {
+        panic("Valor no valido")
+    }
+
+    fmt.Println("Ingresa valor para username:")
+    username := r.readLine()
+
+    fmt.Println("Ingresa valor para email:")
+    email := r.readLine()
+
+    fmt.Println("Ingresa valor para edad:")
+    age, err := strconv.Atoi(r.readLine())
+    if err != nil {
+        panic("Valor no valido")
+    }
+
+    /* forma basica:
+    user := User{ id, username, email, age, }
+    users[id] = user
+    */
+
+    /* check no nulos y existe */
+    for _, user := range users {
+        if user.id == id {
+            if username != "" {
+                user.username = username
+            }
+            if email != "" {
+                user.email = email
+            }
+            if age != 0 {
+                user.age = age
+            }
+            users[id] = user
+        }
+    }
+}
+
+
+
+func setUserInfo() (string, string, int) {
+    fmt.Print("Ingresa un valor para username:")
+    username := readLine()
+
+    fmt.Print("Ingresa un valor para email:")
+    email := readLine()
+
+    fmt.Print("Ingresa un valor para edad:")
+    age, err := strconv.Atoi(readLine())
+
+    if err != nil {
+        panic("No es posible convertir de str a int")
+    }
+
+    return username, email, age
+}
+
+
+func actualizarUsuario()  {
+    clearConsole()
+
+
+fmt.Print("Ingresa el id del usuario a actualizar: ")
+id, err := strconv.Atoi(readLine())
+
+if err != nil {
+    panic("No es posible convertir de un string a un entero.")
+}
+
+
+if _, ok := users[id]; ok {
+
+    fmt.Print("Ingresa un nuevo username: ")
+    username := readLine()
+    fmt.Print("Ingresa un nuevo email: ")
+    email := readLine()
+    fmt.Print("Ingresa una nueva edad: ")
+    age, err := strconv.Atoi(readLine())
+
+    if err != nil {
+        panic("No es posible convertir de un string a un entero")
+    }
+
+    fmt.Println("\nEste es el nuevo username: ", username)
+    fmt.Println("Este es el nuevo email: ", email)
+    fmt.Println("Este es la nueva edad: ", age)
+
+    user := User { id, username, email, age }
+    users[id] = user
+
+}
+
+
+func actualizarUsuario(){
+   clearConsole()
+
+
+var optionActualizar string
+
+
+
+fmt.Print("Ingrese el id del usuario que quiera actualizar: ")
+
+
+
+if id, err := strconv.Atoi(readLine()); err != nil{
+      fmt.Println("El valor ingresado no pudo convertirse en int")
+   }else{
+      if usuario, ok := users[id]; ok{
+         clearConsole()
+
+
+
+     fmt.Println("A) Nombre de usuario")
+     fmt.Println("B) Edad")
+     fmt.Println("C) Email")
+     fmt.Print("¿Que quieres actualizar?: ")
+
+     optionActualizar = readLine()
+
+     <em>switch </em>optionActualizar{
+     <em>case </em>"a":
+        clearConsole()
+        fmt.Print("Ingrese el nuevo nombre de usuario: ")
+        usuario.username = readLine()
+        fmt.Println("Nombre actualizado correctamente!!!")
+     <em>case </em>"b":
+        clearConsole()
+        fmt.Print("Ingrese la nueva edad del usuario: ")
+
+        <em>if </em>age,err := strconv.Atoi(readLine());err != nil{
+           fmt.Println("La edad ingresada no es valida")
+        }<em>else</em>{
+           usuario.age = age
+           fmt.Println("Edad actualizada correctamente!!!")
+        }
+     <em>case </em>"c":
+        clearConsole()
+        fmt.Print("Ingrese el nuevo email de usuario: ")
+        usuario.username = readLine()
+        fmt.Println("Nombre actualizado correctamente!!!")
+     <em>default</em>:
+        fmt.Println("Opcion invalida")
+     }
+     users[id] = usuario
+  }
